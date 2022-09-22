@@ -2,7 +2,7 @@ import './Todo.css'
 import Task from '../Task/Task'
 import { useState, useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import TaskContext from '../context/TaskContext';
+import TaskContext from '../providers/TaskContext';
 
 const Todo = () => {
     const {tasks, setTasks} = useContext(TaskContext)
