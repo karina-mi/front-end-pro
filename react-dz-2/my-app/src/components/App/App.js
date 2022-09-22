@@ -1,13 +1,18 @@
 import './App.css';
 import Todo from '../Todo/Todo'
-import { useState } from 'react';
-
+import TaskContext from '../context/TaskContext';
+import {useState} from 'react'
 
 function App() {
+  const [tasks, setTasks] = useState([])
+
   return (
-    <div className="App">
-      <Todo/>
+    <div className='App'>
+      <TaskContext.Provider value={{tasks, setTasks}}>
+        <Todo/>
+      </TaskContext.Provider>
     </div>
+
   );
 }
 
