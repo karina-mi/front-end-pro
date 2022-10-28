@@ -1,0 +1,25 @@
+.todos_pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.todos-pagination_item {
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 100%;
+}
+
+.todos-pagination_item:hover {
+    cursor: pointer;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,229,233,1) 100%);
+    font-weight: bold;
+
+}
+.todos-pagination_item--active {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,229,233,1) 100%);
+    font-weight: bold;
+}
