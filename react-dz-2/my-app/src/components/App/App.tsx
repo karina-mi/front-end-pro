@@ -1,8 +1,8 @@
 import './App.css';
 
-import React from 'react'
+import React, {FC} from 'react'
 import Todos from '../Todos'
 
-const App = () => <Todos/>
+const App: FC = () => <Todos/>
 
 export default App;

@@ -1,7 +1,8 @@
-import React, {useMemo} from 'react'
+import React, {FC, useMemo} from 'react'
 import './TodosPagination.css'
+import {TodosPaginationProps} from "./types";
 
-const TodosPagination = ({sortedList, page, setPage}) => {
+const TodosPagination: FC<TodosPaginationProps> = ({sortedList, page, setPage}) => {
 
   const paginationNumbers = useMemo(() => sortedList?.length > 20 ? Math.round(sortedList.length / 20) : 1,
     [sortedList])

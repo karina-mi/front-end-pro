@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import {ITodo} from "../../types";
 
 export const todosApi = createApi({
   reducerPath: 'todosApi',
@@ -6,10 +7,10 @@ export const todosApi = createApi({
     {baseUrl: 'https://jsonplaceholder.typicode.com/'}
   ),
   endpoints: (builder) => ({
-    getAllTodos: builder.query({
+    getAllTodos: builder.query<ITodo[], void>({
       query: () => 'todos',
     })
   })
 })
 
-export const {useGetAllTodosQuery, useLazyGetAllTodosQuery} = todosApi
+export const {useGetAllTodosQuery,} = todosApi

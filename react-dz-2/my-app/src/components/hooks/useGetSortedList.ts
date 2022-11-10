@@ -1,6 +1,11 @@
 import {useMemo} from 'react'
+import {ITodo} from "../../types";
 
-const useGetSortedList = (showOnlyCompleted, items, userSorId) => {
+const useGetSortedList = (
+    showOnlyCompleted: boolean,
+    items: ITodo[],
+    userSorId: string
+): ITodo[] => {
   return (
     useMemo(() => {
       const sortList = showOnlyCompleted ? items.filter(item => item.completed) : items

@@ -1,5 +1,4 @@
-import React, {useMemo, useState} from 'react'
-import {useSelector} from 'react-redux'
+import React, {ChangeEvent, FC, useMemo, useState} from 'react'
 import {useGetAllTodosQuery} from '../../store/api/todos'
 import './index.css'
 
@@ -8,18 +7,19 @@ import TodosPagination from './TodosPagination'
 import TodosSort from './TodosSort'
 import useFilterTodos from '../hooks/useFilterTodos'
 import useGetSortedList from '../hooks/useGetSortedList'
+import {useAppSelector} from "../../store/hooks";
 
 
-const Todos = () => {
+const Todos:FC = () => {
   useGetAllTodosQuery()
-  const {items} = useSelector(state => state.todos)
-  const [page, setPage] = useState(1)
+  const {items} = useAppSelector(state => state.todos)
+
+  const [page, setPage] = useState<number>(1)
   const [userSorId, setUserSorId] = useState('all')
+  const [showOnlyCompleted, setShowOnlyCompleted] = useState<boolean>(false)
 
-  const [showOnlyCompleted, setShowOnlyCompleted] = useState(false)
 
-
-  const onSelect = (e) => {
+  const onSelect = (e: ChangeEvent<HTMLSelectElement>): void => {
     setUserSorId(e.target.value)
     setPage(1)
   }
@@ -29,7 +29,7 @@ const Todos = () => {
 
   const filteredTodos = useFilterTodos(page, sortedList)
 
-  const userIdArr = useMemo(() => new Set(items.map(t => t.userId)), [items])
+  const userIdArr: Set<number> = useMemo(() => new Set(items.map(t => t.userId)), [items])
 
   return (
     <div className='todos'>

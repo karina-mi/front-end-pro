@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import {createRoot} from "react-dom/client";
 import {Provider} from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom'
 
@@ -12,7 +12,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import store from './store/slices'
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById('root')!
+const root = createRoot(container)
 root.render(
   <React.StrictMode>
     <Provider store={store}>

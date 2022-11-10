@@ -1,6 +1,7 @@
 import {useMemo} from 'react'
+import {ITodo} from "../../types";
 
-const useFilterTodos = (page, sortedList) => {
+const useFilterTodos = (page: number, sortedList: ITodo[]): ITodo[] => {
   return (
     useMemo(() => {
       const start = (page - 1) * 20

@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {FC} from 'react'
 import './TodoItem.css'
 
 import {changeStatus, removeTodo} from '../../store/slices/todos'
-import {useDispatch} from 'react-redux'
+import {ITodoItemProps} from "./types";
+import {useAppDispatch} from "../../store/hooks";
 
 
-const TodoItem = ({id, completed, title}) => {
-  const dispatch = useDispatch()
+const TodoItem: FC<ITodoItemProps> = ({id, completed, title}) => {
+  const dispatch = useAppDispatch()
 
   return (
     <div key={id} className={`todos_item todos-item ${completed ? 'todos-item--completed' : ''}`}>
@@ -15,9 +16,7 @@ const TodoItem = ({id, completed, title}) => {
         <button
           type='button'
           className='todos-item_button'
-          onClick={() => dispatch(
-            changeStatus(id))}
-        >
+          onClick={() => dispatch(changeStatus(id))}>
           <i className="bi bi-pencil-fill"></i>
         </button>
         {
